@@ -1,0 +1,78 @@
+.op-start {
+  position: fixed;
+  margin: auto;
+  width: 200px;
+  height: 40px;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+}
+.op-start-btn {
+  display: block;
+  font-weight: bold;
+  color: #33C4A7;
+}
+.op-start-bg {
+  background-color: #33C4A7;
+}
+.op-icon {
+  color: #fff;
+  font-size: 60px;
+  text-shadow: 2px 2px 0px #33C4A7, 9px 8px 0px rgba(0, 0, 0, 0.15);
+}
+.op-start-icon {
+  text-align: center;
+  margin-top: 150px;
+}
+.op-bottom p {
+  text-align: center;
+  color: #fff;
+  padding: 10px 0 0 0;
+  font-style: italic;
+}
+.op-bottom {
+  position: fixed;
+  bottom: 60px;
+  width: 100%;
+}
+.op-add-card {
+  font-size: 28px;
+  color: #f3f4f5;
+}
+.op-main {
+  line-height: 55px !important;
+}
+.app-list li {
+  height: 100% !important;
+}
+.op-card-num {
+  font-size: 18px;
+  letter-spacing: 1.5px;
+}
+.op-card-bank {
+  font-size: 18px;
+}
+.op-card-type {
+  position: absolute;
+  top: 10px;
+  right: 26px;
+  font-size: 14px;
+  color: #bbb;
+}
+.op-right {
+  float: right;
+}
+.op-left {
+  float: left;
+}
+.op-add-btn-large {
+  background-color: #e8eaef;
+}
+.op-add-btn-large .app-button {
+  background-color: green;
+  color: #fff;
+}
+.op-list {
+  color: #444 !important;
+}
