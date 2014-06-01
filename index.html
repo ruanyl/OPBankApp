@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>My App</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+    <link rel="stylesheet" href="app.min.css">
+    <link rel="stylesheet" href="op.css">
+    <link rel="stylesheet" href="font-awesome/css/font-awesome.min.css">
+    <style>
+      /* TODO */
+    </style>
+  </head>
+
+  <body>
+    <div class="app-page" data-page="home">
+      <div class="app-content op-start-bg">
+          <div class="op-start-icon">
+            <i class="fa fa-credit-card op-icon"></i>
+          </div>
+          <div class="op-start">
+            <a style="color:#33C4A7" class="app-button op-start-btn" data-target="main">START</a>
+          </div>
+          <div class="op-bottom">
+            <p>CARDS ALL IN ONE</p>
+          </div>
+      </div>
+    </div>
+
+    <div class="app-page" data-page="main">
+      <div class="app-topbar dark-blue">
+        <div class="app-button left" data-back></div>
+        <div class="app-button right op-main" data-target="addcard">
+          <i class="fa fa-plus-square-o op-add-card"></i>
+        </div>
+        <div class="app-title">Cards</div>
+      </div>
+      <div class="app-content">
+        <div class="app-section">
+          <ul class="app-list">
+              <li class="app-button op-list" data-target="cardpage" data-target-args='{"name":"DanskeBank", "iban":"**** **** **** 3487"}'>
+              <p class="op-card-bank">DanskeBank <i class="fa fa-credit-card"></i></p>
+              <p class="op-card-num">**** **** **** 3487</p>
+            </li>
+            <li class="app-button op-list" data-target="cardpage" data-target-args='{"name":"Nordea", "iban":"**** **** **** 7389"}'>
+              <p class="op-card-bank">Nordea <i class="fa fa-credit-card"></i></p>
+              <p class="op-card-num">**** **** **** 7389</p>
+            </li>
+          </ul>
+        </div>
+        <div class="app-section">
+          <ul class="app-list">
+              <li class="app-button op-list" data-target="loyaltypage" data-target-args='{"name":"Alepa", "points":400, "owner":"Yulong Ruan"}'>
+              <p class="op-card-bank op-left">Alepa </p>
+              <p class="op-right"><i class="fa fa-angle-right"></i></p>
+            </li>
+            <li class="app-button op-list" data-target="loyaltypage" data-target-args='{"name":"K-market", "points":600, "owner":"TJ"}'>
+              <p class="op-card-bank op-left">K-market </p>
+              <p class="op-right"><i class="fa fa-angle-right"></i></p>
+            </li>
+            <li class="app-button op-list" data-target="loyaltypage" data-target-args='{"name":"Zara", "points":100, "owner":"Mahnoush"}'>
+              <p class="op-card-bank op-left">Zara </p>
+              <p class="op-right"><i class="fa fa-angle-right"></i></p>
+            </li>
+            <li class="app-button op-list" data-target="loyaltypage" data-target-args='{"name":"H&M", "points":500, "owner":"Zhan"}'>
+              <p class="op-card-bank op-left">H&M </p>
+              <p class="op-right"><i class="fa fa-angle-right"></i></p>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="app-page" data-page="addcard">
+      <div class="app-topbar dark-blue">
+        <div class="app-button left" data-back></div>
+        <div class="app-title">Add Card</div>
+      </div>
+      <div class="app-content">
+        <div class="app-section">
+            <input class="app-input" placeholder="Card Number">
+        </div>
+        <div class="app-section op-add-btn-large">
+          <div class="app-button">Add</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="app-page" data-page="cardpage">
+      <div class="app-topbar dark-blue">
+        <div class="app-button left" data-back></div>
+        <div class="app-title">Cards</div>
+      </div>
+      <div class="app-content">
+        <div class="app-section">
+          <ul class="app-list">
+            <li class="op-list">
+              <p class="op-card-bank"><span>DankeBank</span> <i class="fa fa-credit-card"></i></p>
+              <p class="op-card-type">Credit Card</p>
+              <p class="op-card-num">**** **** **** 3487</p>
+              <p class="op-card-owner">Yulong Ruan</p>
+            </li>
+          </ul>
+        </div>
+        <div class="app-section op-remove-btn-large">
+          <div class="app-button">Remove</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="app-page" data-page="loyaltypage">
+      <div class="app-topbar dark-blue">
+        <div class="app-button left" data-back></div>
+        <div class="app-title">Loyalty Cards</div>
+      </div>
+      <div class="app-content">
+        <div class="app-section">
+          <ul class="app-list">
+              <li class="op-l-issued">Issued by: <span>Alepa</span></li>
+              <li class="op-l-owner">Owner: <span>Yulong Ruan</span></li>
+              <li class="op-l-points">Points: <span>400</span></li>
+          </ul>
+        </div>
+        <div class="app-section op-add-btn-large">
+          <div id="op-use" class="app-button">Use</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="app-page" data-page="qr">
+      <div class="app-topbar dark-blue">
+        <div class="app-button left" data-back></div>
+        <div class="app-title">QR Code</div>
+      </div>
+      <div class="app-content">
+        <div class="app-section qr">
+        </div>
+        <div class="app-section">
+            <p style="text-align:center">Scan to use</p>
+        </div>
+      </div>
+    </div>
+
+    <script src="zepto.js"></script>
+    <script src="app.min.js"></script>
+    <script src="qr.min.js"></script>
+    <script>
+      App.controller('home', function (page) {
+        // put stuff here
+      });
+
+      App.controller('main', function (page) {
+        // put stuff here
+      });
+
+      App.controller('addcard', function (page) {
+        // put stuff here
+      });
+
+      App.controller('cardpage', function (page, cardinfo) {
+        $(page).find(".app-title").text(cardinfo.name);
+        $(page).find(".op-card-bank span").text(cardinfo.name);
+        $(page).find(".op-card-num").text(cardinfo.iban);
+        // put stuff here
+      });
+
+      App.controller('loyaltypage', function (page, cardinfo) {
+        $(page).find(".app-title").text(cardinfo.name);
+        $(page).find(".op-l-issued span").text(cardinfo.name);
+        $(page).find(".op-l-owner span").text(cardinfo.owner);
+        $(page).find(".op-l-points span").text(cardinfo.points);
+        $(page).find('#op-use')
+        .on('click', function() {
+            App.load('qr', cardinfo);
+        });
+        // put stuff here
+      });
+
+      App.controller('qr', function (page, cardinfo) {
+              var img = qr.image({value: 'http://qr.com/read?name='+cardinfo.name+'&owner='+cardinfo.owner+'&points='+cardinfo.points, size: 6});
+        $(page).find(".qr").html(img);
+        // put stuff here
+      });
+
+      try {
+        App.restore();
+      } catch (err) {
+        App.load('home');
+      }
+    </script>
+  </body>
+</html>
