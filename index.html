@@ -37,11 +37,11 @@
       <div class="app-content">
         <div class="app-section">
           <ul class="app-list">
-            <li class="app-button op-list" data-target="cardpage">
-              <p class="op-card-bank">DankeBank <i class="fa fa-credit-card"></i></p>
+              <li class="app-button op-list" data-target="cardpage" data-target-args='{"name":"DanskeBank", "iban":"**** **** **** 3487"}'>
+              <p class="op-card-bank">DanskeBank <i class="fa fa-credit-card"></i></p>
               <p class="op-card-num">**** **** **** 3487</p>
             </li>
-            <li class="app-button op-list" data-target="cardpage">
+            <li class="app-button op-list" data-target="cardpage" data-target-args='{"name":"Nordea", "iban":"**** **** **** 7389"}'>
               <p class="op-card-bank">Nordea <i class="fa fa-credit-card"></i></p>
               <p class="op-card-num">**** **** **** 7389</p>
             </li>
@@ -49,19 +49,19 @@
         </div>
         <div class="app-section">
           <ul class="app-list">
-            <li class="app-button op-list" data-target="loyaltypage">
+              <li class="app-button op-list" data-target="loyaltypage" data-target-args='{"name":"Alepa", "points":400, "owner":"Yulong Ruan"}'>
               <p class="op-card-bank op-left">Alepa </p>
               <p class="op-right"><i class="fa fa-angle-right"></i></p>
             </li>
-            <li class="app-button op-list" data-target="loyaltypage">
+            <li class="app-button op-list" data-target="loyaltypage" data-target-args='{"name":"K-market", "points":600, "owner":"TJ"}'>
               <p class="op-card-bank op-left">K-market </p>
               <p class="op-right"><i class="fa fa-angle-right"></i></p>
             </li>
-            <li class="app-button op-list" data-target="loyaltypage">
+            <li class="app-button op-list" data-target="loyaltypage" data-target-args='{"name":"Zara", "points":100, "owner":"Mahnoush"}'>
               <p class="op-card-bank op-left">Zara </p>
               <p class="op-right"><i class="fa fa-angle-right"></i></p>
             </li>
-            <li class="app-button op-list" data-target="loyaltypage">
+            <li class="app-button op-list" data-target="loyaltypage" data-target-args='{"name":"H&M", "points":500, "owner":"Zhan"}'>
               <p class="op-card-bank op-left">H&M </p>
               <p class="op-right"><i class="fa fa-angle-right"></i></p>
             </li>
@@ -88,14 +88,21 @@
     <div class="app-page" data-page="cardpage">
       <div class="app-topbar dark-blue">
         <div class="app-button left" data-back></div>
-        <div class="app-title">Add Card</div>
+        <div class="app-title">Cards</div>
       </div>
       <div class="app-content">
         <div class="app-section">
-            <input class="app-input" placeholder="Card Number">
+          <ul class="app-list">
+            <li class="op-list">
+              <p class="op-card-bank"><span>DankeBank</span> <i class="fa fa-credit-card"></i></p>
+              <p class="op-card-type">Credit Card</p>
+              <p class="op-card-num">**** **** **** 3487</p>
+              <p class="op-card-owner">Yulong Ruan</p>
+            </li>
+          </ul>
         </div>
-        <div class="app-section op-add-btn-large">
-          <div class="app-button">Add</div>
+        <div class="app-section op-remove-btn-large">
+          <div class="app-button">Remove</div>
         </div>
       </div>
     </div>
@@ -103,20 +110,39 @@
     <div class="app-page" data-page="loyaltypage">
       <div class="app-topbar dark-blue">
         <div class="app-button left" data-back></div>
-        <div class="app-title">Add Card</div>
+        <div class="app-title">Loyalty Cards</div>
       </div>
       <div class="app-content">
         <div class="app-section">
-            <input class="app-input" placeholder="Card Number">
+          <ul class="app-list">
+              <li class="op-l-issued">Issued by: <span>Alepa</span></li>
+              <li class="op-l-owner">Owner: <span>Yulong Ruan</span></li>
+              <li class="op-l-points">Points: <span>400</span></li>
+          </ul>
         </div>
         <div class="app-section op-add-btn-large">
-          <div class="app-button">Add</div>
+          <div id="op-use" class="app-button">Use</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="app-page" data-page="qr">
+      <div class="app-topbar dark-blue">
+        <div class="app-button left" data-back></div>
+        <div class="app-title">QR Code</div>
+      </div>
+      <div class="app-content">
+        <div class="app-section qr">
+        </div>
+        <div class="app-section">
+            <p style="text-align:center">Scan to use</p>
         </div>
       </div>
     </div>
 
     <script src="zepto.js"></script>
     <script src="app.min.js"></script>
+    <script src="qr.min.js"></script>
     <script>
       App.controller('home', function (page) {
         // put stuff here
@@ -126,7 +152,32 @@
         // put stuff here
       });
 
-      App.controller('addpage', function (page) {
+      App.controller('addcard', function (page) {
+        // put stuff here
+      });
+
+      App.controller('cardpage', function (page, cardinfo) {
+        $(page).find(".app-title").text(cardinfo.name);
+        $(page).find(".op-card-bank span").text(cardinfo.name);
+        $(page).find(".op-card-num").text(cardinfo.iban);
+        // put stuff here
+      });
+
+      App.controller('loyaltypage', function (page, cardinfo) {
+        $(page).find(".app-title").text(cardinfo.name);
+        $(page).find(".op-l-issued span").text(cardinfo.name);
+        $(page).find(".op-l-owner span").text(cardinfo.owner);
+        $(page).find(".op-l-points span").text(cardinfo.points);
+        $(page).find('#op-use')
+        .on('click', function() {
+            App.load('qr', cardinfo);
+        });
+        // put stuff here
+      });
+
+      App.controller('qr', function (page, cardinfo) {
+              var img = qr.image({value: 'http://qr.com/read?name='+cardinfo.name+'&owner='+cardinfo.owner+'&points='+cardinfo.points, size: 6});
+        $(page).find(".qr").html(img);
         // put stuff here
       });
 

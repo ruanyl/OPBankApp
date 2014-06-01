@@ -76,3 +76,17 @@
 .op-list {
   color: #444 !important;
 }
+.op-remove-btn-large .app-button{
+  background-color: #D4412C;
+  color: #fff;
+}
+.op-remove-btn-large {
+  background-color: #e8eaef;
+}
+.op-card-owner {
+  font-size: 12px;
+  color: #bbb;
+}
+.qr {
+  text-align: center;
+}
